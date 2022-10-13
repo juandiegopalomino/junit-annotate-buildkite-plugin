@@ -28,7 +28,7 @@ function check_size {
 
 trap cleanup EXIT
 
-xmls_dir=$(readlink -f $BUILDKITE_PLUGIN_JUNIT_ANNOTATE_LOCAL_DIRECTORY)
+xmls_dir=$(readlink -f "$BUILDKITE_PLUGIN_JUNIT_ANNOTATE_LOCAL_DIRECTORY")
 
 echo "--- :junit: Processing the junits"
 
