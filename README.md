@@ -1,6 +1,6 @@
-# JUnit Annotate Buildkite Plugin [![Build status](https://badge.buildkite.com/e57701b1037f2c77d0b3f2e4901559ed2e8f131119cd7806ad.svg?branch=master)](https://buildkite.com/buildkite/plugins-junit-annotate)
+# JUnit Annotate Buildkite Plugin [![Checks](https://github.com/juandiegopalomino/junit-annotate-local-buildkite-plugin/actions/workflows/ci.yaml/badge.svg)](https://github.com/juandiegopalomino/junit-annotate-local-buildkite-plugin/actions/workflows/ci.yaml)
 
-A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) that parses junit.xml artifacts (generated across any number of parallel steps) and creates a [build annotation](https://buildkite.com/docs/agent/v3/cli-annotate) listing the individual tests that failed.
+A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) that parses junit.xml from local directories and creates a [build annotation](https://buildkite.com/docs/agent/v3/cli-annotate) listing the individual tests that failed.
 
 ## Example
 
@@ -10,19 +10,16 @@ The following pipeline will run `test.sh` jobs in parallel, and then process all
 steps:
   - command: test.sh
     parallelism: 50
-    artifact_paths: tmp/junit-*.xml
-  - wait: ~
-    continue_on_failure: true
-  - plugins:
+    plugins:
       - junit-annotate#v2.0.2:
-          artifacts: tmp/junit-*.xml
+          directory: tmp
 ```
 
 ## Configuration
 
-### `artifacts` (required)
+### `directory` (required)
 
-The artifact glob path to find the JUnit XML files.
+The local directory holding the JUnit XML files.
 
 Example: `tmp/junit-*.xml`
 
