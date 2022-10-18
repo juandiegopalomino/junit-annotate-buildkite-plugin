@@ -6,13 +6,13 @@ services:
     volumes:
       - ".:/plugin"
   plugin:
-    image: buildkite/plugin-tester:latest@sha256:476a1024936901889147f53d2a3d8e71e99d76404972d583825514f5608083dc
+    image: buildkite/plugin-tester:v3.0.1
     volumes:
       - ".:/plugin"
     depends_on:
       - ruby
   ruby:
-    image: ruby:3.1-alpine@sha256:0b91e98c4613c2287bb7274a1584ea141b68960fb6b0edd7fe32127dc888d1a0
+    image: ruby:3.1-alpine@sha256:c5acbb8bcc57cc3cb8da7f28077ec23c9c05217f26bd4e156d7b87df6dcf0c00
     command: rake
     working_dir: /src
     volumes:
