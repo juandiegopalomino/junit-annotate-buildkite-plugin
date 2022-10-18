@@ -23,6 +23,10 @@ The local directory holding the JUnit XML files.
 
 Example: `tmp/junit-*.xml`
 
+### `always-annotate` (optional, boolean)
+
+Forces the creation of the annotation even when no failures or errors are found
+
 ### `job-uuid-file-pattern` (optional)
 Default: `-(.*).xml`
 
