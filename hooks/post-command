@@ -1,6 +1,11 @@
 #!/bin/bash
 
 set -euo pipefail
+if [[ "${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_LOCAL_VERBOSE:-false}" =~ (true|on|1) ]]; then
+  echo "Will run verbose mode"
+  set -x
+fi
+
 
 PLUGIN_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)/.."
 MAX_SIZE=1024 # in KB
