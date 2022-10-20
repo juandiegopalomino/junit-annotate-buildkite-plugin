@@ -62,6 +62,11 @@ Default: `0`
 
 Include the specified number of slowest tests in the annotation. The annotation will always be shown.
 
+### `verbose` (optional)
+Default: `false`
+
+Run in verbose mode.
+
 ## Developing
 
 To test the plugin hooks (in Bash) and the junit parser (in Ruby):
